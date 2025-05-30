@@ -18,7 +18,7 @@ export async function PUT(req, { params }) {
       slug: form.get("slug"),
       title: form.get("title"),
       content: form.get("content"),
-      // price: form.get("price"),
+      price: form.get("price"),
       date: form.get("date"),
     };
     const file = form.get("image");

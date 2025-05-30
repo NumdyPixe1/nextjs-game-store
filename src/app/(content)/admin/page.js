@@ -11,7 +11,7 @@ export default function AdminPage() {
     slug: "",
     title: "",
     content: "",
-    // price: "",
+    price: "",
     date: "",
     image: null,
   });
@@ -80,13 +80,13 @@ export default function AdminPage() {
           onChange={handleChange}
           required
         />
-        {/* <textarea
+        <textarea
           name="price"
           placeholder="Price"
           value={form.price}
           onChange={handleChange}
           required
-        /> */}
+        />
         <input
           name="date"
           type="date"

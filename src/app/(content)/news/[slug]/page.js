@@ -25,7 +25,7 @@ export default async function NewsContentPage({ params }) {
           <h1>{newsItem.title}</h1>
           <time dateTime={newsItem.dateTime}>{newsItem.dateTime}</time>
         </header>
-        <p>{newsItem.content}</p>
+        <p>฿{newsItem.price}</p>
       </article>
     </>
   );

@@ -9,22 +9,24 @@ const DUMMY_NEWS = [
     slug: "gta-v",
     title: "Grand Theft Auto V Enhanced PC - Rockstar Games Launcher",
     image: "gta-v",
+    content:
+      "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
     date: "2025-04-05",
-    content: "386.29",
+    price: "386.29",
   },
 ];
 const db = sqlite("data.db");
 
 function initDb() {
   db.prepare(
-    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, date TEXT, image TEXT)"
+    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT,  content TEXT,price TEXT,date TEXT, image TEXT)"
   ).run();
 
   const { count } = db.prepare("SELECT COUNT(*) as count FROM news").get();
 
   if (count === 0) {
     const insert = db.prepare(
-      "INSERT INTO news (slug, title, content,  date, image) VALUES (?, ?, ?, ?, ?, ?)"
+      "INSERT INTO news (slug, title, content,price, date, image) VALUES (?, ?, ?, ?, ?, ?)"
     );
 
     DUMMY_NEWS.forEach((news) => {
@@ -32,7 +34,7 @@ function initDb() {
         news.slug,
         news.title,
         news.content,
-        // news.price,
+        news.price,
         news.date,
         news.image
       );

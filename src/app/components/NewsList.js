@@ -8,7 +8,7 @@ export default function NewsList({ news }) {
           <Link href={`/news/${item.slug}`}>
             <img src={`/images/news/${item.image}`} alt={item.title} />
             <span>{item.title}</span>
-            <span>{item.price}</span>
+            <span>฿{item.price}</span>
           </Link>
         </li>
       ))}

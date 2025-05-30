@@ -18,8 +18,8 @@ export async function opreateNews(formData) {
       body: formData,
     }
   );
+
   if (res.ok) {
-    //ทุก ๆ อันที่ใช้ layout
     revalidatePath("/", "layout");
     redirect("/news");
   } else {
