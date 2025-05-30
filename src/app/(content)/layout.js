@@ -1,8 +1,8 @@
 //ให้ news, archive อยู่ภายใต้ layout ตัวนี้
 import MainHeader from "../components/main-header";
 export const metadata = {
-  title: "Next.js Page Routing & Rendering",
-  description: "Learn how to route to different pages.",
+  title: " ",
+  description: "  ",
 };
 
 export default function ContentLayout({ children }) {

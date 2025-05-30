@@ -9,10 +9,12 @@
 */
 
 import { updateNews, deleteNews } from "@/lib/news";
-
+//|
 export async function PUT(req, { params }) {
   try {
     const form = await req.formData();
+    //อย่าลืมใส่       video: form.get("video"),
+
     const news = {
       id: (await params).id,
       slug: form.get("slug"),

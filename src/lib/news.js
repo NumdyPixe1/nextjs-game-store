@@ -1,6 +1,5 @@
 import sql from "better-sqlite3";
 import fs from "fs/promises";
-
 const db = sql("data.db");
 
 const DUMMY_NEWS = [
@@ -13,21 +12,24 @@ const DUMMY_NEWS = [
       "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
     date: "2025-04-05",
     price: "386.29",
+    // video: "https://www.youtube.com/watch?v=QkkoHAzjnUs&pp=0gcJCdgAo7VqN5tD",
   },
 ];
 
 function initDb() {
+  //อย่าลืมใส่ video TEXT,
   db.exec(
-    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT, date TEXT, image TEXT)"
+    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT,  date TEXT, image TEXT)"
   );
 
   const { count } = db.prepare("SELECT COUNT(*) as count FROM news").get();
 
   if (count === 0) {
+    //อย่าลืมใส่ video,
     const insert = db.prepare(
-      "INSERT INTO news (slug, title, content, price, date, image) VALUES (?, ?, ?, ?, ?,?)"
+      "INSERT INTO news (slug, title, content, price, date, image) VALUES (?, ?, ?, ?, ?, ?, ?)"
     );
-
+    //อย่าลืมใส่         news.video,
     DUMMY_NEWS.forEach((news) => {
       insert.run(
         news.slug,
@@ -100,10 +102,13 @@ export async function getNewsForYearAndMonth(year, month) {
 }
 
 export async function addNews(news, image) {
+  //อย่าลืมใส่ video,
   const { slug, title, content, price, date } = news;
+  //อย่าลืมใส่  video,
   const insert = db.prepare(
-    "INSERT INTO news (slug, title, content, price, date, image) VALUES (?, ?, ?, ?, ?)"
+    "INSERT INTO news (slug, title, content, price, date, image) VALUES (?, ?, ?, ?, ?,?,?)"
   );
+  //อย่าลืมใส่  video,
   const result = insert.run(slug, title, content, price, date, "");
   const id = result.lastInsertRowid;
   //ป้องกันการตั้งชื่อ image ซ้ำกัน
@@ -120,12 +125,13 @@ export async function addNews(news, image) {
     );
     db.prepare("UPDATE news SET image = ? WHERE id = ?").run(imageFile, id);
   }
-
+  //อย่าลืมใส่ video,
   return { id, slug, title, content, price, date, image: imageFile };
 }
 
 export async function updateNews(news, file) {
   console.log(news);
+  //อย่าลืมใส่  video,
   const { id, slug, title, content, price, date } = news;
   if (file.size > 0) {
     let { image } = db.prepare("SELECT image FROM news WHERE id = ?").get(id);
@@ -137,15 +143,17 @@ export async function updateNews(news, file) {
       `@/../public/images/news/${imageFile}`,
       Buffer.from(await file.arrayBuffer())
     );
+    //อย่าลืมใส่  video = ?,
     db.prepare(
-      "UPDATE news SET slug = ?, title = ?, content = ?, price = ?,   date = ?, image = ? WHERE id = ?"
-    ).run(slug, title, content, price, date, imageFile, id);
+      "UPDATE news SET slug = ?, title = ?, content = ?, price = ?, date = ?, image = ? WHERE id = ?"
+    ).run(slug, title, content, price, video, date, imageFile, id);
 
     return { ...news, image: imageFile };
   } else {
+    //อย่าลืมใส่ video = ?,
     db.prepare(
-      "UPDATE news SET slug = ?, title = ?, content=?,price = ?, date = ? WHERE id = ?"
-    ).run(slug, title, content, price, date, id);
+      "UPDATE news SET slug = ?, title = ?, content=?, price = ?,  date = ? WHERE id = ?"
+    ).run(slug, title, content, price, video, date, id);
 
     return news;
   }

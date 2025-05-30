@@ -2,16 +2,17 @@
 import { useState, useEffect } from "react";
 import styles from "./admin.module.css";
 import { redirect } from "next/navigation";
-import { opreateNews } from "./handle-form";
-
+import { opreateNews } from "./handle-form.js";
 export default function AdminPage() {
   const [newsList, setNewsList] = useState([]);
+  //อย่าลืมใส่
   const [form, setForm] = useState({
     id: "",
     slug: "",
     title: "",
     content: "",
     price: "",
+    // video: "",
     date: "",
     image: null,
   });
@@ -57,6 +58,7 @@ export default function AdminPage() {
           Sign out
         </a>
       </h1>
+      {/* อย่าลืมใส่ */}
       <form action={opreateNews} className={styles.form}>
         <input type="hidden" name="id" value={form.id} />
         <input
@@ -87,6 +89,13 @@ export default function AdminPage() {
           onChange={handleChange}
           required
         />
+        {/* <textarea
+          name="video"
+          placeholder="Video"
+          value={form.video}
+          onChange={handleChange}
+          required
+        /> */}
         <input
           name="date"
           type="date"

@@ -5,16 +5,14 @@ export default function MainHeader() {
   return (
     <header id="main-header">
       <div id="logo">
-        <Link href="/">NextNews</Link>
+        <Link href="/">Game Store</Link>
       </div>
       <nav>
         <ul>
           <li>
-            <NavLink href="/news">All game</NavLink>
+            <NavLink href="/">All game</NavLink>
           </li>
-          <li>
-            <NavLink href="/archive">Archive</NavLink>
-          </li>
+          <li>{/* <NavLink href="/archive">Archive</NavLink> */}</li>
         </ul>
       </nav>
     </header>
