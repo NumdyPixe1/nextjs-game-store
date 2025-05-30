@@ -7,7 +7,6 @@ export default async function NewsPage() {
   const news = await getAllNews(); //await response.json();
   return (
     <>
-      <h1>หน้ารายการข่าว</h1>
       <NewsList news={news} />
     </>
   );

@@ -11,6 +11,7 @@ export default function AdminPage() {
     slug: "",
     title: "",
     content: "",
+    // price: "",
     date: "",
     image: null,
   });
@@ -51,7 +52,7 @@ export default function AdminPage() {
   return (
     <>
       <h1>
-        Manage News{" "}
+        Edit Product
         <a className={styles.signout} href="/api/auth/signout">
           Sign out
         </a>
@@ -79,6 +80,13 @@ export default function AdminPage() {
           onChange={handleChange}
           required
         />
+        {/* <textarea
+          name="price"
+          placeholder="Price"
+          value={form.price}
+          onChange={handleChange}
+          required
+        /> */}
         <input
           name="date"
           type="date"
