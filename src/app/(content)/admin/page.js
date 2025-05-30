@@ -6,13 +6,15 @@ import { opreateNews } from "./handle-form";
 
 export default function AdminPage() {
   const [newsList, setNewsList] = useState([]);
+  //อย่าลืมใส่
+
   const [form, setForm] = useState({
     id: "",
     slug: "",
     title: "",
     content: "",
     price: "",
-    // video: "",
+    video: "",
     date: "",
     image: null,
   });
@@ -49,6 +51,7 @@ export default function AdminPage() {
       }
     });
   };
+  //อย่าลืมใส่
 
   return (
     <>
@@ -88,13 +91,13 @@ export default function AdminPage() {
           onChange={handleChange}
           required
         />
-        {/* <textarea
+        <textarea
           name="video"
           placeholder="Video"
           value={form.video}
           onChange={handleChange}
           required
-        /> */}
+        />
         <input
           name="date"
           type="date"

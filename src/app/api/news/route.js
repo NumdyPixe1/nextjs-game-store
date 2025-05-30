@@ -8,7 +8,7 @@ export async function GET() {
     return Response.json({ error: error.message }, { status: 500 });
   }
 }
-
+//อย่าลืมใส่
 export async function POST(req) {
   try {
     const form = await req.formData();
@@ -17,7 +17,7 @@ export async function POST(req) {
       title: form.get("title"),
       content: form.get("content"),
       price: form.get("price"),
-      // video: form.get("video"),
+      video: form.get("video"),
       date: form.get("date"),
     };
     const file = form.get("image");

@@ -2,7 +2,7 @@
 import express from "express";
 import sqlite from "better-sqlite3";
 import cors from "cors";
-
+//อย่าลืมใส่
 const DUMMY_NEWS = [
   {
     id: "g1",
@@ -13,23 +13,25 @@ const DUMMY_NEWS = [
       "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
     date: "2025-04-05",
     price: "386.29",
-    // video: "",
+    video: "A",
   },
 ];
 const db = sqlite("data.db");
 
 function initDb() {
+  //อย่าลืมใส่
   db.prepare(
-    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT, date TEXT, image TEXT)"
+    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT, video TEXT,date TEXT, image TEXT)"
   ).run();
 
   const { count } = db.prepare("SELECT COUNT(*) as count FROM news").get();
 
   if (count === 0) {
+    //อย่าลืมใส่
     const insert = db.prepare(
-      "INSERT INTO news (slug, title, content, price,  date, image) VALUES (?, ?, ?, ?, ?, ?, ?)"
+      "INSERT INTO news (slug, title, content, price, video, date, image) VALUES (?, ?, ?, ?, ?, ?, ?)"
     );
-
+    //อย่าลืมใส่
     DUMMY_NEWS.forEach((news) => {
       insert.run(
         news.slug,
