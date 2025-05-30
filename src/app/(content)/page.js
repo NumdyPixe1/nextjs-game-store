@@ -1,5 +1,5 @@
 //ใช้สำหรับ ฝั่ง Server-side ลบ "use client" และ use
-import NewsList from "@/app/components/NewsList";
+import GameList from "../components/NewsList";
 import { getAllNews } from "@/lib/news";
 
 export default async function NewsPage() {
@@ -7,7 +7,7 @@ export default async function NewsPage() {
   const news = await getAllNews(); //await response.json();
   return (
     <>
-      <NewsList news={news} />
+      <GameList news={news} />
     </>
   );
 }

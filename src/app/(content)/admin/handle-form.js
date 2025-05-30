@@ -21,7 +21,7 @@ export async function opreateNews(formData) {
 
   if (res.ok) {
     revalidatePath("/", "layout");
-    redirect("/news");
+    redirect("/");
   } else {
     const err = await res.json();
     throw new Error(err.message || "News operation failed");

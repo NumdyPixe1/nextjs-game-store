@@ -5,7 +5,7 @@ export default function MainHeader() {
   return (
     <header id="main-header">
       <div id="logo">
-        <Link href="/">Game Store</Link>
+        <Link href="/">NextNews</Link>
       </div>
       <nav>
         <ul>

@@ -6,9 +6,9 @@ export default async function NewsContentPage({ params }) {
   /*
    หาข่าวที่ตรงกับ slug ที่ระบุ
    */
-  const gameItem = await getNewsItem(slug); //DUMMY_NEWS.find(item => item.slug == slug);
+  const newsItem = await getNewsItem(slug); //DUMMY_NEWS.find(item => item.slug == slug);
 
-  if (!gameItem) {
+  if (!newsItem) {
     /*
     เรียก NewsNotFoundPage ใน not-found.js 
     แต่ถ้าไม่มี not-found.js ของ news ก็จะไปเรียกของ global
@@ -20,14 +20,14 @@ export default async function NewsContentPage({ params }) {
       <article className="news-article">
         <header>
           <Link href={`/news/${slug}/image`}>
-            <img src={`/images/news/${gameItem.image}`} alt={gameItem.title} />
+            <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
           </Link>
-          <h1>{gameItem.title}</h1>
-          <time dateTime={gameItem.dateTime}>{gameItem.dateTime}</time>
+          <h1>{newsItem.title}</h1>
+          <time dateTime={newsItem.dateTime}>{newsItem.dateTime}</time>
         </header>
-        <p>฿{gameItem.price}</p>
-        {/* <iframe src={gameItem.video}></iframe> */}
-        <span>{gameItem.content}</span>
+        <h3>฿{newsItem.price}</h3>
+        {/* <iframe></iframe> */}
+        <p>{newsItem.content}</p>
       </article>
     </>
   );

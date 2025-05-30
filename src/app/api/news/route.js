@@ -1,4 +1,5 @@
 import { getAllNews, addNews } from "@/lib/news";
+
 export async function GET() {
   try {
     const news = await getAllNews();
@@ -11,13 +12,12 @@ export async function GET() {
 export async function POST(req) {
   try {
     const form = await req.formData();
-    //อย่าลืมใส่       video: form.get("video"),
-
     const news = {
       slug: form.get("slug"),
       title: form.get("title"),
       content: form.get("content"),
       price: form.get("price"),
+      // video: form.get("video"),
       date: form.get("date"),
     };
     const file = form.get("image");

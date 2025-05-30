@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 import styles from "./admin.module.css";
 import { redirect } from "next/navigation";
-import { opreateNews } from "./handle-form.js";
+import { opreateNews } from "./handle-form";
+
 export default function AdminPage() {
   const [newsList, setNewsList] = useState([]);
-  //อย่าลืมใส่
   const [form, setForm] = useState({
     id: "",
     slug: "",
@@ -58,7 +58,6 @@ export default function AdminPage() {
           Sign out
         </a>
       </h1>
-      {/* อย่าลืมใส่ */}
       <form action={opreateNews} className={styles.form}>
         <input type="hidden" name="id" value={form.id} />
         <input

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NewsList({ news }) {
+export default function GameList({ news }) {
   return (
     <ul className="game-list">
       {news.map((item) => (
