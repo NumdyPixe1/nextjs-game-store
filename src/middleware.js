@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 //ลูกที่ตาม /news จะแสดง console.log เช่น /news/adv
 export const config = {
-  matcher: ["/game/:path*", "/api/:path*", "/admin/:path*"],
+  matcher: ["/news/:path*", "/api/:path*", "/admin/:path*"],
 };
 export function middleware(request) {
   console.log("GET request received:", request.method);
