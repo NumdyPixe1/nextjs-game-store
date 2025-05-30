@@ -14,14 +14,14 @@ const DUMMY_NEWS = [
       "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
     date: "2025-04-05",
     price: "386.29",
-    // video: "",
+    // video: ".",
   },
 ];
 
 function initDb() {
   //อย่าลืมใส่
   db.exec(
-    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT,   date TEXT, image TEXT)"
+    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT,    date TEXT, image TEXT)"
   );
 
   const { count } = db.prepare("SELECT COUNT(*) as count FROM news").get();
@@ -29,7 +29,7 @@ function initDb() {
   if (count === 0) {
     const insert = db.prepare(
       //อย่าลืมใส่
-      "INSERT INTO news (slug, title, content, price,   date, image) VALUES (?, ?, ?, ?, ?,?,?)"
+      "INSERT INTO news (slug, title, content, price,  date, image) VALUES (?, ?, ?, ?, ?,?)"
     );
 
     DUMMY_NEWS.forEach((news) => {
@@ -110,8 +110,8 @@ export async function addNews(news, image) {
   //อย่าลืมใส่
   const { slug, title, content, price, date } = news;
   const insert = db.prepare(
-    //อย่าลืมใส่
-    "INSERT INTO news (slug, title, content, price,   date, image) VALUES (?,?, ?, ?, ?, ?)"
+    //อย่าลืมใส่ && ใส่ ? ให้ตรงกับจำนวน col
+    "INSERT INTO news (slug, title, content, price,   date, image) VALUES (?, ?, ?, ?, ?,?)"
   );
   //อย่าลืมใส่
   const result = insert.run(slug, title, content, price, date, "");
@@ -150,15 +150,15 @@ export async function updateNews(news, file) {
     );
     db.prepare(
       //อย่าลืมใส่
-      "UPDATE news SET slug = ?, title = ?, content = ?, price = ?,   date = ?, image = ? WHERE id = ?"
-    ).run(slug, title, content, price, date, imageFile, id);
+      "UPDATE news SET slug = ?, title = ?, content = ?, price = ?,    date = ?, image = ? WHERE id = ?"
+    ).run(slug, title, content, price, video, date, imageFile, id);
 
     return { ...news, image: imageFile };
   } else {
     db.prepare(
       //อย่าลืมใส่
-      "UPDATE news SET slug = ?, title = ?, content = ?, price = ?,   date = ? WHERE id = ?"
-    ).run(slug, title, content, price, date, id);
+      "UPDATE news SET slug = ?, title = ?, content = ?, price = ?,  date = ? WHERE id = ?"
+    ).run(slug, title, content, price, video, date, id);
 
     return news;
   }

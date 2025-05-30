@@ -13,7 +13,7 @@ const DUMMY_NEWS = [
       "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
     date: "2025-04-05",
     price: "386.29",
-    // video: "",
+    // video: ".",
   },
 ];
 const db = sqlite("data.db");
@@ -27,7 +27,7 @@ function initDb() {
 
   if (count === 0) {
     const insert = db.prepare(
-      "INSERT INTO news (slug, title, content, price,  date, image) VALUES (?, ?, ?, ?, ?, ?, ?)"
+      "INSERT INTO news (slug, title, content, price,  date, image) VALUES ( ?, ?, ?, ?, ?,?)"
     );
 
     DUMMY_NEWS.forEach((news) => {

@@ -45,7 +45,7 @@ export default function AdminPage() {
       headers: { "x-admin": true },
     }).then((res) => {
       if (res.ok) {
-        redirect("/news");
+        redirect("/");
       }
     });
   };
