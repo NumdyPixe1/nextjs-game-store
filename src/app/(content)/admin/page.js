@@ -36,7 +36,7 @@ export default function AdminPage() {
 
   const handleEdit = (item) => {
     setForm(item);
-    setPreview(`/images/news/${item.image}`);
+    setPreview(`/images/games/${item.image}`);
   };
 
   const handleDelete = (id) => {

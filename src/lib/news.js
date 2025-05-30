@@ -66,7 +66,7 @@ export async function getLatestNews() {
     .all();
   return latestNews;
 }
-
+/*
 export async function getAvailableNewsYears() {
   const years = db
     .prepare("SELECT DISTINCT strftime('%Y', date) as year FROM news")
@@ -95,6 +95,7 @@ export async function getNewsForYear(year) {
   return news;
 }
 
+
 export async function getNewsForYearAndMonth(year, month) {
   const news = db
     .prepare(
@@ -104,7 +105,7 @@ export async function getNewsForYearAndMonth(year, month) {
 
   return news;
 }
-
+*/
 export async function addNews(news, image) {
   //อย่าลืมใส่
   const { slug, title, content, price, date } = news;
@@ -124,7 +125,7 @@ export async function addNews(news, image) {
   */
   if (image) {
     await fs.writeFile(
-      `@/../public/images/news/${imageFile}`,
+      `@/../public/images/games/${imageFile}`,
       Buffer.from(await image.arrayBuffer())
     );
     db.prepare("UPDATE news SET image = ? WHERE id = ?").run(imageFile, id);
@@ -140,11 +141,11 @@ export async function updateNews(news, file) {
   if (file.size > 0) {
     let { image } = db.prepare("SELECT image FROM news WHERE id = ?").get(id);
     //ลบไฟล์เก่าทิ้ง
-    await fs.unlink(`@/../public/images/news/${image}`).catch(() => {});
+    await fs.unlink(`@/../public/images/games/${image}`).catch(() => {});
     const imageFile = `game-${id}.${file.name.split(".").pop()}`;
     //สร้างไฟล์ใหม่
     await fs.writeFile(
-      `@/../public/images/news/${imageFile}`,
+      `@/../public/images/games/${imageFile}`,
       Buffer.from(await file.arrayBuffer())
     );
     db.prepare(
@@ -167,5 +168,5 @@ export async function updateNews(news, file) {
 export async function deleteNews(id) {
   const { image } = db.prepare("SELECT * FROM news WHERE id = ?").get(id);
   db.prepare("DELETE FROM news WHERE id = ?").run(id);
-  await fs.unlink(`@/../public/images/news/${image}`).catch(() => {});
+  await fs.unlink(`@/../public/images/games/${image}`).catch(() => {});
 }

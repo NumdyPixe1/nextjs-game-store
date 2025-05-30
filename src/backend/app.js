@@ -20,7 +20,7 @@ const db = sqlite("data.db");
 
 function initDb() {
   db.prepare(
-    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT,  date TEXT, image TEXT)"
+    "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY, slug TEXT UNIQUE, title TEXT, content TEXT, price TEXT, date TEXT, image TEXT)"
   ).run();
 
   const { count } = db.prepare("SELECT COUNT(*) as count FROM news").get();

@@ -15,7 +15,7 @@ export default async function InterceptedImageModal({ params }) {
       {/* แสดงภาพเป็นรูปแบบ modal */}
       <ModalBackdrop>
         <dialog open className="modal">
-          <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+          <img src={`/images/games/${newsItem.image}`} alt={newsItem.title} />
         </dialog>
       </ModalBackdrop>
     </>
