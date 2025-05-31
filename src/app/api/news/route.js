@@ -17,7 +17,7 @@ export async function POST(req) {
       title: form.get("title"),
       content: form.get("content"),
       price: form.get("price"),
-      // video: form.get("video"),
+      video: form.get("video"),
       date: form.get("date"),
     };
     const file = form.get("image");

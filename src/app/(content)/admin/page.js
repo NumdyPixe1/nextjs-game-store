@@ -11,8 +11,8 @@ export default function AdminPage() {
     slug: "",
     title: "",
     content: "",
+    video: "",
     price: "",
-    // video: "",
     date: "",
     image: null,
   });
@@ -88,13 +88,13 @@ export default function AdminPage() {
           onChange={handleChange}
           required
         />
-        {/* <textarea
+        <textarea
           name="video"
           placeholder="Video"
           value={form.video}
           onChange={handleChange}
           required
-        /> */}
+        />
         <input
           name="date"
           type="date"
