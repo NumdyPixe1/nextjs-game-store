@@ -16,9 +16,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS users (
   password TEXT
 )`);
 
-//
 export async function POST(req, { params }) {
-  //ด
   const { action } = await params;
   const { email, password } = await req.json();
   const users = db.prepare("SELECT * FROM users WHERE email = ?");
@@ -45,6 +43,7 @@ export async function POST(req, { params }) {
   if (action === "signin") {
     //หาจาก email
     const user = users.get(email);
+    console.log("aaaaaaaa" + email);
     //หาไม่เจอ
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });

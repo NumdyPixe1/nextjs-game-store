@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import styles from "./admin.module.css";
 import { redirect } from "next/navigation";
-import { opreateNews } from "./handle-form";
+import { opreateGame } from "./handle-form";
 
 export default function AdminPage() {
   const [newsList, setNewsList] = useState([]);
@@ -19,7 +19,7 @@ export default function AdminPage() {
   const [preview, setPreview] = useState("");
 
   useEffect(() => {
-    fetch("/api/news")
+    fetch("/api/game")
       .then((res) => res.json())
       .then(setNewsList);
   }, []);
@@ -40,12 +40,12 @@ export default function AdminPage() {
   };
 
   const handleDelete = (id) => {
-    fetch(`/api/news/${id}`, {
+    fetch(`/api/game/${id}`, {
       method: "DELETE",
       headers: { "x-admin": true },
     }).then((res) => {
       if (res.ok) {
-        redirect("/");
+        redirect("/game");
       }
     });
   };
@@ -58,7 +58,7 @@ export default function AdminPage() {
           Sign out
         </a>
       </h1>
-      <form action={opreateNews} className={styles.form}>
+      <form action={opreateGame} className={styles.form}>
         <input type="hidden" name="id" value={form.id} />
         <input
           name="slug"

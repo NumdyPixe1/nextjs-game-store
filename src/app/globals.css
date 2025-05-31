@@ -19,7 +19,12 @@ ul {
   margin: 0;
   padding: 0;
 }
-
+ .main-page{
+  text-align: center;
+  margin-top: 3rem;
+  color: rgb(98, 255, 0);
+  gap: 100;
+ }
 #page {
   width: 90%;
   max-width: 60rem;
@@ -150,6 +155,17 @@ ul {
   border-radius: 4px;
 }
 
+.btn{  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+   
+}
+.btn:hover {
+  transform: scale(1.02);
+}
 .modal {
   background-color: #bababa;
   padding: 2rem;
@@ -193,6 +209,8 @@ ul {
 .error {
   text-align: center;
   margin-top: 3rem;
+  color: red;
+  gap: 100;
 }
 .fullscreen-image{
   width: 100%;

@@ -10,14 +10,13 @@ export default function MainHeader() {
       <nav>
         <ul>
           <li>
-            <NavLink href="/">All game</NavLink>
+            <Link href="/game">All game</Link>
           </li>
-          <li>{/* <NavLink href="/archive">Archive</NavLink> */}</li>
-          <li>
+          {/* <li>
             <NavLink href="/admin/profile">Profile</NavLink>
-          </li>
+          </li> */}
           <li>
-            <NavLink href="/admin">Edit Product</NavLink>
+            <Link href="/admin">Edit Product</Link>
           </li>
         </ul>
       </nav>

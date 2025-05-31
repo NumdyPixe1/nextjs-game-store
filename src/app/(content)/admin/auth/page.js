@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import styles from "./auth.module.css";
-
 export default function AuthPage() {
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(`/api/auth/${isSignup ? "signup" : "signin"}`, {
@@ -21,7 +19,7 @@ export default function AuthPage() {
     if (res.ok) {
       //login สำเร็จ
       setMessage(data.message || "Success");
-      location.href = "/admin";
+      location.href = `/`;
     } else {
       setMessage(data.error || "Failed");
     }

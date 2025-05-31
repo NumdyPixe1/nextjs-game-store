@@ -1,13 +1,14 @@
-//ใช้สำหรับ ฝั่ง Server-side ลบ "use client" และ use
-import GameList from "../components/NewsList";
-import { getAllNews } from "@/lib/news";
+import Link from "next/link";
 
-export default async function NewsPage() {
-  //const response = await fetch('http://localhost:8080/news');
-  const news = await getAllNews(); //await response.json();
+export default async function GamePage() {
   return (
     <>
-      <GameList news={news} />
+      <div className="main-page">
+        <h1>Welcome to Game Store</h1>
+        <button className="btn" style={{ marginTop: "16px" }}>
+          <Link href="/game">Go to Game Page</Link>
+        </button>
+      </div>
     </>
   );
 }
