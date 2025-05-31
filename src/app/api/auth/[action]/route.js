@@ -43,7 +43,6 @@ export async function POST(req, { params }) {
   if (action === "signin") {
     //หาจาก email
     const user = users.get(email);
-    console.log("aaaaaaaa" + email);
     //หาไม่เจอ
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
