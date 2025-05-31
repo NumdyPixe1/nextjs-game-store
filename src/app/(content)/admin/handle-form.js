@@ -21,6 +21,7 @@ export async function opreateNews(formData) {
 
   if (res.ok) {
     revalidatePath("/", "layout");
+    //เสร็จสิ้นแล้วจะกลับไปหน้าแรก
     redirect("/");
   } else {
     const err = await res.json();

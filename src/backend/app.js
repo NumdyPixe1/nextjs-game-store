@@ -13,7 +13,7 @@ const DUMMY_NEWS = [
       "Experience entertainment blockbusters Grand Theft Auto V and Grand Theft Auto Online — now upgraded for a new generation with stunning visuals, faster loading, 3D audio, and more, plus exclusive content for GTA Online players.",
     date: "2025-04-05",
     price: "386.29",
-    video: ".",
+    video: "https://www.youtube.com/watch?v=QkkoHAzjnUs",
   },
 ];
 const db = sqlite("data.db");

@@ -9,7 +9,7 @@ export default function ContentLayout({ children }) {
   return (
     <div id="page">
       <MainHeader />
-      {/* news, archive */}
+      {/* Show news page, archive page*/}
       {children}
     </div>
   );
