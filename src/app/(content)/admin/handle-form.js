@@ -22,7 +22,7 @@ export async function opreateGame(formData) {
   if (res.ok) {
     revalidatePath("/", "layout");
     //เสร็จสิ้นแล้วจะกลับไปหน้าแรก
-    redirect("/game");
+    redirect("/");
   } else {
     const err = await res.json();
     throw new Error(err.message || "News operation failed");

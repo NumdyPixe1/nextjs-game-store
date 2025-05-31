@@ -3,8 +3,8 @@ Intercepted Route = แยกว่าต้นทางมาจากไหน
 แสดงหน้านี้เมื่อมีการคลิก link ในเว็บ
 */
 //Components ที่ต้องรับรู้ทางฝั่ง Client
-import ModalBackdrop from "@/app/components/modal-backdrop";
-import { getNewsItem } from "@/lib/news";
+import ModalBackdrop from "@/app/components/ModalBackdrop";
+import { getNewsItem } from "@/lib/game";
 import { notFound } from "next/navigation";
 export default async function InterceptedImageModal({ params }) {
   const { slug } = await params;

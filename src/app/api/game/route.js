@@ -1,4 +1,4 @@
-import { getAllNews, addNews } from "@/lib/news";
+import { getAllNews, addNews } from "@/lib/game";
 
 export async function GET() {
   try {

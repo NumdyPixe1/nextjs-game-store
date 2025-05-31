@@ -1,4 +1,4 @@
-import { getAllNews } from "@/lib/news";
+import { getAllNews } from "@/lib/game";
 export function GET() {
   const stats = {};
   const newsList = getAllNews();

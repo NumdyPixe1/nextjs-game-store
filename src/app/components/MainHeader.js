@@ -10,7 +10,7 @@ export default function MainHeader() {
       <nav>
         <ul>
           <li>
-            <Link href="/game">All game</Link>
+            <Link href="/">All game</Link>
           </li>
           {/* <li>
             <NavLink href="/admin/profile">Profile</NavLink>

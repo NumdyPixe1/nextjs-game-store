@@ -8,7 +8,7 @@
     http://localhost:3000/api/news/n1
 */
 
-import { updateNews, deleteNews } from "@/lib/news";
+import { updateNews, deleteNews } from "@/lib/game";
 
 export async function PUT(req, { params }) {
   try {
