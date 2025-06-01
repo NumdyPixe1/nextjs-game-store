@@ -111,7 +111,7 @@ export default function AdminPage() {
         {preview && (
           <img src={preview} alt="preview" className={styles.preview} />
         )}
-        <button type="submit">{form.id ? "Update" : "Create"} News</button>
+        <button type="submit">{form.id ? "Update" : "Create"} Game</button>
       </form>
 
       <ul className={styles.list}>

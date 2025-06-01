@@ -42,6 +42,7 @@ export default async function GameContentPage({ params }) {
         ></iframe>
         <p>{gameItem.content}</p>
       </article>
+      <h2>You May Also Like</h2>
       <GameList game={allGameItem} />
     </>
   );
